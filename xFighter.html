@@ -1,78 +1,73 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>X-Fighter</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+	<meta charset="utf-8">
+	<title>X-Fighter</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
-
 <body>
-	
-    <br>
-    </br>
-<div id="scores">
-	<p> Vague: <span id="infoVague">  </span></br>
-     Ennemis restant: <span id="infoEnnemy"> </span></br>
-     Ennemis tués: <span id="infoEnnemy2"> </span> </br>
-     Score: <span id="infoScore"> </span>
-     
-     </p>
-</div>
+	</br>
+	<div id="scores">
+		<p> Vague: <span id="infoVague"> </span></br>
+			Ennemis restant: <span id="infoEnnemy"> </span></br>
+			Ennemis tués: <span id="infoEnnemy2"> </span> </br>
+			Score: <span id="infoScore"> </span>
 
-<div id="playground">
-    <!-- Tous les éléments du jeu viendront automatiquement se placer ici -->
-            <div id="welcomeScreen">
-              <div style="position: absolute;width: 700px; color: white;">
-                <center><a style="cursor: pointer;" id="startbutton">
-                 <img src="bg/Xfighter.jpg" name="xFighter">
-                </a></center>
-              </div>
-            </div>
-            
-</div>
- 
+		</p>
+	</div>
 
-	<script src=jquery.js></script> <!-- importe jquery-->
-	<script src=querygame.js></script> <!-- importe querygame-->
-   	<script src=bot.js></script> <!-- importe querygame-->
-   	<script src=player.js></script> <!-- importe querygame-->
-    <script src=background.js></script>
+	<div id="playground">
+		<!-- Tous les éléments du jeu viendront automatiquement se placer ici -->
+		<div id="welcomeScreen">
+			<div style="position: absolute;width: 700px; color: white;">
+				<center>
+					<a style="cursor: pointer;" id="startbutton">
+						<img src="assets/img/background/GameStart.jpg" name="xFighter">
+					</a>
+				</center>
+			</div>
+		</div>
 
-	<script> <!-- script principal du jeu -->
-	var b = 0;
-	
-	initBackGround();
-	initPlayer();
-	initBot1(nbrEnnemy1);
-	$("#explosion21").x(-255,false);
-	$("#explosion").x(-191,false);
-	$("#explosion21").setAnimation(explosion2);
-	$("#explosion").setAnimation(explosion);
-	
-	initCloud(nbrCloud);
+	</div>
 
-	//Fonction qui est appelé toute les 30 ms, permet les animations
-	$.playground().registerCallback(function(){
-	
-	/*$("#badguy1").x(500,false);
-	$("#badguy1").y(600,false);
-	*/
-	moveFighter();
-	moveBackground();
-	moveEnnemy1();
-	moveMissile();			
-	moveCloud(nbrCloud);	
-	collisionMwE ();
-	collicionFwE();
-	
 
-		
-	}, 30); // définit l'intervalle de temps à 30ms
-	
-	start();
-</script>
+	<script src=lib/jquery.js></script> <!-- import jquery-->
+	<script src=lib/querygame.js></script> <!-- import querygame-->
+	<script src=app/bot.js></script> <!-- import querygame-->
+	<script src=app/player.js></script> <!-- import querygame-->
+	<script src=app/background.js></script>
 
-	
+	<!--main script -->
+	<script> 
+		var b = 0;
+		initBackGround();
+		initPlayer();
+		initBot1(nbrEnnemy1);
+		$("#explosion21").x(-255, false);
+		$("#explosion").x(-191, false);
+		$("#explosion21").setAnimation(explosion2);
+		$("#explosion").setAnimation(explosion);
+
+		initCloud(nbrCloud);
+
+		//function for animations
+		$.playground().registerCallback(function () {
+
+			moveFighter();
+			moveBackground();
+			moveEnnemy1();
+			moveMissile();
+			moveCloud(nbrCloud);
+			collisionMwE();
+			collicionFwE();
+
+		}, 30); // called every 30ms
+		start();
+
+	</script>
+
+
 </body>
 </html>
