@@ -11,14 +11,14 @@ var fighterL = new $.gameQuery.Animation({ imageURL: "assets/img/fighter/smallfi
 //player image 
 var missile = new $.gameQuery.Animation({ imageURL: "assets/img/fighter/missile.png" }); //image missile
 var flame = new $.gameQuery.Animation({
-	imageURL: "fighter/flame_sprite.png",
+	imageURL: "assets/img/fighter/flame_sprite.png",
 	numberOfFrame: 5,
 	delta: 102, // each frame is 40px
 	rate: 100,
 	type: $.gameQuery.ANIMATION_HORIZONTAL
 });
 var explosion = new $.gameQuery.Animation({
-	imageURL: "fighter/Explosion.png",
+	imageURL: "assets/img/fighter/Explosion.png",
 	numberOfFrame: 64,
 	delta: 192,
 	rate: 30,
